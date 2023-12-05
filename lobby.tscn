@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://uihi8crd6db7"]
+
+[ext_resource type="Script" path="res://lobby.gd" id="1_sk8hf"]
+
+[node name="lobby" type="Node2D"]
+script = ExtResource("1_sk8hf")
+
+[node name="Host" type="Button" parent="."]
+offset_left = 257.0
+offset_top = 306.0
+offset_right = 422.0
+offset_bottom = 414.0
+text = "Host"
+
+[node name="Join" type="Button" parent="."]
+offset_left = 608.0
+offset_top = 307.0
+offset_right = 779.0
+offset_bottom = 416.0
+text = "Join
+"
+
+[node name="name_input" type="LineEdit" parent="."]
+offset_left = 316.0
+offset_top = 218.0
+offset_right = 780.0
+offset_bottom = 249.0
+text = "admin"
+
+[node name="name" type="Label" parent="."]
+offset_left = 259.0
+offset_top = 220.0
+offset_right = 310.0
+offset_bottom = 246.0
+text = "Name:"
+
+[node name="ip_input" type="LineEdit" parent="."]
+offset_left = 316.0
+offset_top = 266.0
+offset_right = 780.0
+offset_bottom = 297.0
+text = "127.0.0.1"
+
+[node name="ip" type="Label" parent="."]
+offset_left = 259.0
+offset_top = 268.0
+offset_right = 310.0
+offset_bottom = 294.0
+text = "IP:"
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

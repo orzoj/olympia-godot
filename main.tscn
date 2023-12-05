@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://beyv72x4nuib6"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_g5ymi"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_g5ymi")
+
+[node name="log" type="RichTextLabel" parent="."]
+offset_left = 16.0
+offset_top = 7.0
+offset_right = 955.0
+offset_bottom = 494.0
+bbcode_enabled = true
+scroll_following = true
+
+[node name="text_input" type="LineEdit" parent="."]
+offset_left = 39.0
+offset_top = 540.0
+offset_right = 686.0
+offset_bottom = 577.0
