@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://xm7lv4jgi0n0"]
+
+[node name="button_scene" type="Node2D"]
+scale = Vector2(1, 1.12748)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 453.0
+offset_top = 211.977
+offset_right = 605.0
+offset_bottom = 356.977
+theme_override_font_sizes/font_size = 100
+text = "AN"

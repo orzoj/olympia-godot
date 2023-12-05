@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdj72ked4r301"]
+
+[ext_resource type="Script" path="res://Scene/admin.gd" id="1_uykcr"]
+
+[node name="Admin" type="Node2D"]
+scale = Vector2(0.353573, 0.291579)
+script = ExtResource("1_uykcr")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 45.2523
+offset_top = 2074.91
+offset_right = 960.252
+offset_bottom = 2313.91
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="freeze_button" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Freeze Mode"
+
+[node name="button_mode_button" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Button Mode"
+
+[node name="text_modee_button" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Text Mode"
+
+[connection signal="pressed" from="GridContainer/freeze_button" to="." method="_on_freeze_button_pressed"]
+[connection signal="pressed" from="GridContainer/button_mode_button" to="." method="_on_button_mode_button_pressed"]

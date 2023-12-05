@@ -1,19 +1,32 @@
 extends Node
 
 
-var username: String
+var username: String = "user"
+var isAdmin: bool = false
+enum {
+	BUTTON,
+	TEXT,
+	FREEZE
+}
+var state = FREEZE
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	multiplayer.connected_to_server.connect(self.joined)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-
 func joined():
-#	print(username)
 	get_tree().change_scene_to_file("res://main.tscn")
+
+func change_scene(_state):
+	rpc("change_state", _state)
+
+@rpc("any_peer")
+func change_state(_state):
+	print(str(username, ": ", _state))
+	state = _state
+	joined()
+
+

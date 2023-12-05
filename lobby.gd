@@ -8,6 +8,7 @@ func _on_host_pressed():
 	peer.create_server(1027)
 	multiplayer.multiplayer_peer = peer
 	Network.username = $name_input.text
+	Network.isAdmin = 1
 	Network.joined()
 
 func _on_join_pressed():

@@ -1,14 +1,22 @@
 extends Node2D
 
+enum {
+	BUTTON,
+	TEXT,
+	FREEZE
+}
 
 func _ready():
-	pass
+	if Network.isAdmin == true:
+		get_tree().change_scene_to_file("res://Scene/admin.tscn")
 	
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		rpc("send_msg", Network.username, $text_input.text)
-		$text_input.text = ""
-		
-@rpc ("any_peer", "call_local")
-func send_msg(user, data):
-	$log.text += str(user, ": ", data, "\n")
+	if Network.isAdmin == true:
+		return
+	
+	if Network.state == FREEZE:
+		return
+	if Network.state == BUTTON:
+		get_tree().change_scene_to_file("res://Scene/button_scene.tscn")
+	if Network.state == TEXT:
+		return
