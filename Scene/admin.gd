@@ -7,10 +7,13 @@ enum {
 }
 
 func _ready():
-	pass
+	Network.player_answer.connect(self.answer)
 
 func _process(delta):
 	pass
+
+func answer():
+	print("main - receive")
 
 
 func _on_freeze_button_pressed():

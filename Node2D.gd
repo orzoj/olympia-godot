@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	Network.send_data({"user": Network.username})
+	print("button - _on_button_pressed")
+	Network.press.emit()

@@ -10,6 +10,8 @@ enum {
 }
 var state = FREEZE
 
+signal player_answer
+
 func _ready():
 	multiplayer.connected_to_server.connect(self.joined)
 	multiplayer.server_disconnected.connect(self.disconnected)
@@ -28,19 +30,20 @@ func disconnected():
 func change_scene(_state):
 	rpc("change_state", _state)
 
-@rpc("any_peer")
+@rpc("any_peer", "call_local")
 func change_state(_state):
 	print(str(username, ": ", _state))
 	state = _state
 	joined()
 	
 func send_data(data):
-	rpc_id(1,"recieve_data", data)
+	rpc("receive_data", data)
+	print(Network.username + ": send to server")
 
-@rpc("call_local", "any_peer")
-func recieve_data(data):
-	print(data)
+@rpc("any_peer")
+func receive_data(data):
+#	print(username + ": trigger signal")
 	if state == BUTTON:
-		pass
+		player_answer.emit()
 
 
