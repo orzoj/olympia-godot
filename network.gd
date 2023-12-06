@@ -37,8 +37,8 @@ func change_state(_state):
 	joined()
 	
 func send_data(data):
+#	print(Network.username + ": send to server")
 	rpc("receive_data", data)
-	print(Network.username + ": send to server")
 
 @rpc("any_peer")
 func receive_data(data):
