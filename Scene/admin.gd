@@ -7,13 +7,13 @@ enum {
 }
 
 func _ready():
-	Network.player_answer.connect(self.answer)
+	Network.someone_send_data.connect(self.answer)
 
 func _process(delta):
 	pass
 
-func answer():
-	print("main - receive")
+func answer(data):
+	print("main - receive", data)
 
 
 func _on_freeze_button_pressed():
@@ -23,6 +23,9 @@ func _on_freeze_button_pressed():
 func _on_button_mode_button_pressed():
 #	rpc("change_scene", BUTTON)
 	change_scene(BUTTON)
+	
+func _on_text_modee_button_pressed():
+	change_scene(TEXT)
 	
 func change_scene(_state):
 	Network.change_scene(_state)

@@ -3,6 +3,7 @@ extends Node
 
 var username: String = "user"
 var isAdmin: bool = false
+
 enum {
 	BUTTON,
 	TEXT,
@@ -10,7 +11,7 @@ enum {
 }
 var state = FREEZE
 
-signal player_answer
+signal someone_send_data(data)
 
 func _ready():
 	multiplayer.connected_to_server.connect(self.joined)
@@ -37,13 +38,11 @@ func change_state(_state):
 	joined()
 	
 func send_data(data):
-#	print(Network.username + ": send to server")
 	rpc("receive_data", data)
 
-@rpc("any_peer")
+@rpc("any_peer","call_local")
 func receive_data(data):
-#	print(username + ": trigger signal")
-	if state == BUTTON:
-		player_answer.emit()
+	print(username + ": trigger signal")
+	someone_send_data.emit(data)
 
 

@@ -31,3 +31,4 @@ text = "Text Mode"
 
 [connection signal="pressed" from="GridContainer/freeze_button" to="." method="_on_freeze_button_pressed"]
 [connection signal="pressed" from="GridContainer/button_mode_button" to="." method="_on_button_mode_button_pressed"]
+[connection signal="pressed" from="GridContainer/text_modee_button" to="." method="_on_text_modee_button_pressed"]
